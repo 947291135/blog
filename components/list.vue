@@ -36,13 +36,11 @@
 			
 		</view>
 		<view class="content">
-			<scroll-view scroll-y="true">
-				<view ref='item' class="item" v-for="(item,index) of list" :key='index' @touchstart.stop="hover" @touchmove.stop="hover" @touchend.stop="start" :data-item='index'>
+				<view ref='item' :class="['item',hoverItem==index?'active':'']" v-for="(item,index) of list" :key='index' @touchstart.stop="hover" @touchmove.stop="hover" @touchend.stop="start" :data-item='index'>
 					<view :class="['item_left','iconfont',item.icon]"></view>
 					<view class="text">{{$t(`list.data[${index}].text`)}}</view>
 					<view class="item_rigth iconfont iconarrow-right-copy-copy"></view>
 				</view>
-			</scroll-view>
 		</view>
 		<view class="footer">
 			<view class="f_item" @click="anguagelTab">
@@ -61,12 +59,13 @@
 	</view>
 </template>
 
-<script>
+<script scoped>
 	import icons from './uni-icons/icons.js';
 	export default {
 		data() {
 			return {
 				listAnimation: null,
+				hoverItem:null,
 				list:[
 					{
 						icon:'iconjurassic_apply',
@@ -121,27 +120,29 @@
 			},
 			hover(e){
 				let index = e.currentTarget.dataset.item
-				this.$refs.item[index].$el.style.background='#f0f0f0'
+				this.hoverItem =index
+				// this.$refs.item[index].$el.style.background='#f0f0f0'
 			},
 			start(e){
 				let index = e.currentTarget.dataset.item
-				this.$refs.item[index].$el.style.background='#fff'
+				this.hoverItem = null
 			},
 			anguagelTab(){
 				//  语言切换
 				let lg = this.language ==='zh'?'en':'zh'
-				this.$i18n.locale = lg
+				this._i18n.locale = lg
 			}
 		},
 		computed:{
 			language(){
-				return this.$i18n.locale
+				console.log(this._i18n)
+				return this._i18n.locale
 			}
 		}
 	}
 </script>
 
-<style>
+<style scoped>
 	.list {
 		position: absolute;
 		top: 0;
@@ -152,12 +153,12 @@
 		background: #fff;
 		display: flex;
 		flex-direction:column;
-		justify-content: center;
-		align-items:stretch;
+		/* justify-content: center;
+		align-items:stretch; */
 	}
 	/* header */
 	.list > .header{
-		flex: 165px 0 0;
+		flex: 195px 0 0;
 		box-sizing: border-box;
 		padding: 55px 35rpx 40px 35rpx;
 		display: flex;
@@ -224,8 +225,8 @@
 	
 	/* content */
 	.list > .content{
-		height: 100px;
 		overflow-y: scroll;
+		position: relative;
 		flex: 1 1 auto;
 	}
 	.list > .content .item{
@@ -238,6 +239,10 @@
 		align-items: center;
 		min-width: 300px;
 		justify-content: flex-start;
+		background: #fff;
+	}
+	.list > .content .item.active{
+		background: #f0f0f0;
 	}
 	.list > .content .item > view{
 		vertical-align: middle;

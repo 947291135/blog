@@ -1,0 +1,11 @@
+
+.Gradient.data-v-90dd0e40{
+	position: absolute;
+	top:0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+/* 	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(30%, #ff6262), to(#ffa947)); */
+	z-index: -1;
+}
+

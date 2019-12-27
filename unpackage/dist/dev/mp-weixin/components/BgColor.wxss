@@ -1,0 +1,13 @@
+
+.bgcolor.data-v-75555f9e{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	-webkit-transition: opacity .5s ease;
+	transition: opacity .5s ease;
+}
+.bgcolor.active.data-v-75555f9e{
+	opacity: 1;
+}
+

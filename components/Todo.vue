@@ -1,5 +1,5 @@
 <template>
-	<view :class="['todo',{'active': !!selected}]" @click="handleClick()">
+	<view :class="['todo',{'active': !!selected}]" @click.stop="handleClick($event)" :id="'todo_item'+index">
 		<view :class="['todo_header',todo_header?'active':'']">
 			<view :class="['todo_icon',todo_header?'active':'']" @click.stop='$emit("cloe")'>
 				<view :class="['iconfont',todo_header?'iconguanbi':icon]"></view>
@@ -19,9 +19,12 @@
 			};
 		},
 		methods:{
-			handleClick(){
+			handleClick(event){
+				// #ifdef H5
+				需条件编译的代码
+				
 				const appRect = uni.getSystemInfoSync().safeArea;
-				const elRect =this.$el.getBoundingClientRect()
+				const elRect =this.$el.getBoundingClientRect()	
 				const todo =this.todo
 				const rect = {}
 				rect.top = elRect.top - appRect.top
@@ -31,6 +34,7 @@
 				rect.appWidth = appRect.width
 				rect.appHeight = appRect.height
 				this.$store.commit('selectTodo', {rect,todo})
+				// #endif
 			},
 			clone(){
 				this.todo_header =false;
@@ -55,18 +59,27 @@
 				default:()=>{
 					return 'iconhuiyuan'
 				}
+			},
+			index:{
+				type:Number
 			}
 		},
 	}
 </script>
 
-<style>
+<style scoped>
 	.todo {
-		flex: 1;
-		margin: 0 8px;
+		position: absolute;
+		left: 0;
+		right: 0;
 		overflow: hidden;
 		box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
 		color: #666;
+		width: 100%;
+		background-color: #fff;
+		border-radius: 8px;
+		height: 100%;
+		box-sizing: border-box;
 	}
 	.todo.active{
 		visibility: hidden;

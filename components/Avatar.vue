@@ -30,7 +30,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.avatar {
 		display: flex;
 		padding: 0 40px;

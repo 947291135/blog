@@ -69,7 +69,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.TodoDetail {
 		position: fixed;
 		display: flex;

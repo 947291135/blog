@@ -1,0 +1,1 @@
+<block wx:if="{{selected}}"><view class="TodoDetail data-v-4b643f32 vue-ref" animation="{{listAnimation}}" data-ref="TodoDetail"><todo vue-id="1" todo="{{selected.todo}}" data-ref="todo" data-event-opts="{{[['^cloe',[['cloe']]]]}}" bind:cloe="__e" class="data-v-4b643f32 vue-ref" bind:__l="__l"></todo></view></block>

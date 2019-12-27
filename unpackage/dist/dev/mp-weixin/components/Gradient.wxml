@@ -1,0 +1,1 @@
+<view class="Gradient data-v-90dd0e40"><block wx:for="{{bgcolor}}" wx:for-item="item" wx:for-index="index" wx:key="index"><bg-color vue-id="{{'1-'+index}}" colors="{{item}}" active="{{index===currentIndex}}" class="data-v-90dd0e40" bind:__l="__l"></bg-color></block></view>

@@ -5,7 +5,6 @@ export default {
 	},
 	UPcurrentIndex(ctx,data){
 		data = Number(data) || 0;
-		console.log(data)
 		ctx.currentIndex =data;
 	},
 	selectTodo(state,selected){

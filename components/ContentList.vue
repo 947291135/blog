@@ -1,8 +1,8 @@
 <template>
-	<view :class="['content_list',{active:!!selected}]" @touchstart.stop="start" @touchmove.stop="move" @touchend.stop="end">
+	<view :class="['content_list',{active:!!selected}]" @touchstart="start" @touchmove.stop="move" @touchend="end">
 		<view class="list" :style="{width:`${todos.length*100}%`,'min-width':`${todos.length*100}%`}">
-			<view class="list_item" v-for="(item,index) of todos" :key='index' :style="{transform:`translate3d(-${currentIndex*100}%,0,0)`}">
-				<Todo :selected='selected && item===selected.todo' :todo='item'></Todo>
+			<view class="list_item" v-for="(item,index) of todos" :key='index' :style="{transform:`translate3d(-${currentIndex*105}%,0,0)`}">
+				<Todo :selected='selected && item===selected.todo' :todo='item' :index='index'></Todo>
 			</view>
 		</view>
 	</view>
@@ -70,7 +70,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.content_list {
 		padding: 0 32px;
 		height: 400px;
@@ -89,10 +89,8 @@
 
 	.content_list>.list>.list_item {
 		flex: 1;
-	}
-
-	.content_list>.list>.list_item .todo {
-		background-color: #fff;
-		border-radius: 8px;
+		margin: 0 8px;
+		box-sizing: border-box;
+		position: relative;
 	}
 </style>

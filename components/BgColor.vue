@@ -31,7 +31,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 .bgcolor{
 	position: absolute;
 	width: 100%;

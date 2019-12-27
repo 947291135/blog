@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "uni-app",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "list": "/components/list",
+    "gradient": "/components/Gradient",
+    "avatar": "/components/Avatar",
+    "content-list": "/components/ContentList",
+    "todo-detail": "/components/TodoDetail"
+  }
+}

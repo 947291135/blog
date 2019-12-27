@@ -27,7 +27,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 .Gradient{
 	position: absolute;
 	top:0;
