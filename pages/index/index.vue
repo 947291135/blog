@@ -54,6 +54,9 @@
 				this.index = 0;
 			},
 			close() {
+				if(this.selected){
+					return
+				}
 				var contenanimation = uni.createAnimation({
 					duration: 300,
 					timingFunction: 'ease',
@@ -104,6 +107,11 @@
 			test(e) {
 				console.log(e)
 			}
+		},
+		computed: {
+			selected() {
+				return this.$store.state.selected
+			},
 		},
 		components: {
 			uniNavBar,

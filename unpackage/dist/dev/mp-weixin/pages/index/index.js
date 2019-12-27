@@ -178,6 +178,9 @@ __webpack_require__.r(__webpack_exports__);
       this.index = 0;
     },
     close: function close() {var _this2 = this;
+      if (this.selected) {
+        return;
+      }
       var contenanimation = uni.createAnimation({
         duration: 300,
         timingFunction: 'ease' });
@@ -227,6 +230,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     test: function test(e) {
       console.log(e);
+    } },
+
+  computed: {
+    selected: function selected() {
+      return this.$store.state.selected;
     } },
 
   components: {
