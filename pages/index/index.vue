@@ -1,5 +1,5 @@
 <template>
-	<view id="mian" class="mian" @touchstart="movestart" @touchmove="move" @touchend="moveend">
+	<view id="mian" class="mian">
 		<list ref='list' @close='close'></list>
 		<view class="content" :animation="contenAnimation">
 			<uniNavBar left-icon="more-filled" background-color="transparent" color="#fff" :border='false' @clickLeft='shows'></uniNavBar>
@@ -42,6 +42,7 @@
 		},
 		methods: {
 			shows() {
+				console.log(1)
 				var contenanimation = uni.createAnimation({
 					duration: 300,
 					timingFunction: 'ease',
@@ -54,9 +55,6 @@
 				this.index = 0;
 			},
 			close() {
-				if(this.selected){
-					return
-				}
 				var contenanimation = uni.createAnimation({
 					duration: 300,
 					timingFunction: 'ease',

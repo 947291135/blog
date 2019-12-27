@@ -2,6 +2,6 @@
 
 export default {
 	index:'hello world',
-	currentIndex:1,
+	currentIndex:0,
 	selected:null
 }

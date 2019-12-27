@@ -20,6 +20,7 @@
 		},
 		methods:{
 			handleClick(){
+				console.log(123)
 				// #ifdef  H5
 				const appRect = uni.getSystemInfoSync().safeArea;
 				const elRect =this.$el.getBoundingClientRect()
@@ -75,6 +76,7 @@
 		border-radius: 8px;
 		height: 100%;
 		box-sizing: border-box;
+		padding: 0 8px;
 	}
 	.todo.active{
 		visibility: hidden;

@@ -57,7 +57,6 @@
 							})
 							listanimation.top(0).left(0).width(`${this.selected.rect.appWidth}px`).height(`${this.selected.rect.appHeight}px`).step();
 							setTimeout(()=>{
-								
 								this.listAnimation = listanimation.export()
 								this.$refs.todo.ent()
 							},0);

@@ -76,6 +76,7 @@
 		height: 400px;
 		transition: all .5s ease;
 		overflow: hidden;
+		
 	}
 	.content_list.active{
 		/* transform: scaleX(1.25); */

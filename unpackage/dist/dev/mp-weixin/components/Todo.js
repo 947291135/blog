@@ -30,6 +30,7 @@ var _default2 =
   },
   methods: {
     handleClick: function handleClick() {
+      console.log(123);
 
 
 
