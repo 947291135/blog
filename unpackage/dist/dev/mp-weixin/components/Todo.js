@@ -29,9 +29,7 @@ var _default2 =
 
   },
   methods: {
-    handleClick: function handleClick(event) {
-
-
+    handleClick: function handleClick() {
 
 
 
@@ -68,10 +66,7 @@ var _default2 =
       type: String,
       default: function _default() {
         return 'iconhuiyuan';
-      } },
-
-    index: {
-      type: Number } } };exports.default = _default2;
+      } } } };exports.default = _default2;
 
 /***/ }),
 

@@ -41,6 +41,7 @@
 		watch: {
 			selected: {
 				handler(newValue, oldValue) {
+					// #ifdef  H5
 					if (newValue) {
 						setTimeout(() => {
 							const el = this.$refs['TodoDetail'].$el;
@@ -62,6 +63,7 @@
 							},0);
 						}, 0)
 					}
+					// #endif
 				},
 				deep: true
 			}

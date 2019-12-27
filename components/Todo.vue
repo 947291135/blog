@@ -1,5 +1,5 @@
 <template>
-	<view :class="['todo',{'active': !!selected}]" @click.stop="handleClick($event)" :id="'todo_item'+index">
+	<view :class="['todo',{'active': !!selected}]" @click="handleClick()">
 		<view :class="['todo_header',todo_header?'active':'']">
 			<view :class="['todo_icon',todo_header?'active':'']" @click.stop='$emit("cloe")'>
 				<view :class="['iconfont',todo_header?'iconguanbi':icon]"></view>
@@ -19,12 +19,10 @@
 			};
 		},
 		methods:{
-			handleClick(event){
-				// #ifdef H5
-				需条件编译的代码
-				
+			handleClick(){
+				// #ifdef  H5
 				const appRect = uni.getSystemInfoSync().safeArea;
-				const elRect =this.$el.getBoundingClientRect()	
+				const elRect =this.$el.getBoundingClientRect()
 				const todo =this.todo
 				const rect = {}
 				rect.top = elRect.top - appRect.top
@@ -59,9 +57,6 @@
 				default:()=>{
 					return 'iconhuiyuan'
 				}
-			},
-			index:{
-				type:Number
 			}
 		},
 	}

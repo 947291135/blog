@@ -93,9 +93,9 @@
 			},
 			moveend(e) {
 				let i = this.touchX - this.moveX
-				if (i > 150 && this.index == 0) {
+				if (i > 50 && this.index == 0) {
 					this.close()
-				} else if (i < -150 && this.index == 1) {
+				} else if (i < -50 && this.index == 1) {
 					this.shows()
 				} else {
 					this.index === 0 ? this.shows() : this.close()

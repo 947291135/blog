@@ -147,28 +147,30 @@ __webpack_require__.r(__webpack_exports__);
 
   watch: {
     selected: {
-      handler: function handler(newValue, oldValue) {var _this2 = this;
-        if (newValue) {
-          setTimeout(function () {
-            var el = _this2.$refs['TodoDetail'].$el;
-            Object.assign(el.style, {
-              top: "".concat(_this2.selected.rect.top, "px"),
-              left: "".concat(_this2.selected.rect.left, "px"),
-              width: "".concat(_this2.selected.rect.width, "px"),
-              height: "".concat(_this2.selected.rect.height, "px") });
+      handler: function handler(newValue, oldValue) {
 
-            var listanimation = uni.createAnimation({
-              duration: 500,
-              timingFunction: 'ease' });
 
-            listanimation.top(0).left(0).width("".concat(_this2.selected.rect.appWidth, "px")).height("".concat(_this2.selected.rect.appHeight, "px")).step();
-            setTimeout(function () {
 
-              _this2.listAnimation = listanimation.export();
-              _this2.$refs.todo.ent();
-            }, 0);
-          }, 0);
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       },
       deep: true } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
