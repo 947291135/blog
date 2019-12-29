@@ -59,7 +59,7 @@
 							setTimeout(()=>{
 								this.listAnimation = listanimation.export()
 								this.$refs.todo.ent()
-							},0);
+							},10);
 						}, 0)
 					}
 					// #endif
