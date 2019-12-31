@@ -2,16 +2,17 @@
 	<view :class="['todo',{'active': !!selected}]" @click="handleClick()">
 		<view :class="['todo_header',todo_header?'active':'']">
 			<view :class="['todo_icon',todo_header?'active':'']" @click.stop='$emit("cloe")'>
-				<view :class="['iconfont',todo_header?'iconguanbi':icon]"></view>
+				<view :class="['iconfont',todo_header?'iconguanbi':todo.icon]" :style="{color:todo.colors[0]}"></view>
 			</view>
 		</view>
 		<view :class="['list',todo_header?'active':'']" v-if="selected !==null">
-			列表自己写好吧~
+			<article-list></article-list>	
 		</view>
 	</view>
 </template>
 
 <script>
+	import ArticleList from '@/components/ArticleList.vue'
 	export default {
 		data() {
 			return {
@@ -20,7 +21,6 @@
 		},
 		methods:{
 			handleClick(){
-				console.log(123)
 				// #ifdef  H5
 				const appRect = uni.getSystemInfoSync().safeArea;
 				const elRect =this.$el.getBoundingClientRect()
@@ -60,6 +60,9 @@
 				}
 			}
 		},
+		components:{
+			ArticleList
+		}
 	}
 </script>
 
@@ -76,7 +79,8 @@
 		border-radius: 8px;
 		height: 100%;
 		box-sizing: border-box;
-		padding: 0 8px;
+		display: flex;
+		flex-direction:column;
 	}
 	.todo.active{
 		visibility: hidden;
@@ -84,15 +88,16 @@
 	.todo>.todo_header {
 		display: flex;
 		padding: 20px;
+		flex: 44px 0 0;
 		height: 44px;
 		justify-content: space-between;
 		align-items: flex-start;
 		transform: translate3d(0, 0, 0);
 		will-change: transform;
-		transition: all 0s;
+		transition: all 0.5s;
 	}
 	.todo>.todo_header.active{
-		padding: 10px;
+		padding:0;
 	}
 	.todo>.todo_header>.todo_icon {
 		display: flex;
@@ -109,8 +114,11 @@
 	.todo>.todo_header>.todo_icon.active{
 		border: none;border: 0px solid #eee;
 	}
+	.todo>.todo_header>.todo_icon >.iconfont{
+		font-size: 24px;
+	}
 	.todo > .list{
-		opacity: 0;
+		flex: 1;
 		transition: all 1s;
 		transform: translateY(888px);
 	}

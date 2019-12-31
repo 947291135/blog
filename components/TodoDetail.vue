@@ -1,6 +1,6 @@
 <template>
 	<view ref='TodoDetail' class="TodoDetail" v-if="selected" :animation="listAnimation">
-		<todo ref='todo' :todo="selected.todo" @cloe='cloe()'></todo>
+		<todo ref='todo' :todo="selected.todo" @cloe='cloe()' v-if="selected"></todo>
 	</view>
 </template>
 
@@ -59,7 +59,7 @@
 							setTimeout(()=>{
 								this.listAnimation = listanimation.export()
 								this.$refs.todo.ent()
-							},10);
+							},1);
 						}, 0)
 					}
 					// #endif

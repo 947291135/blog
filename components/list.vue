@@ -135,7 +135,6 @@
 		},
 		computed:{
 			language(){
-				console.log(this._i18n)
 				return this._i18n.locale
 			}
 		}

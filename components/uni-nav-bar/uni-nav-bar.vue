@@ -127,6 +127,8 @@
 	}
 
 	.uni-navbar {
+		// 小程序专用
+		// padding-top: 20px; 
 		width: 750rpx;
 	}
 
