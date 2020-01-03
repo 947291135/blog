@@ -5,8 +5,8 @@
 				<view :class="['iconfont',todo_header?'iconguanbi':todo.icon]" :style="{color:todo.colors[0]}"></view>
 			</view>
 		</view>
-		<view :class="['list',todo_header?'active':'']" v-if="selected !==null">
-			<article-list></article-list>	
+		<view :class="['list',todo_header?'active':'']">
+			<article-list  v-if="selected!=null"></article-list>	
 		</view>
 	</view>
 </template>
@@ -33,6 +33,13 @@
 				rect.appWidth = appRect.width
 				rect.appHeight = appRect.height
 				this.$store.commit('selectTodo', {rect,todo})
+				// #endif
+				
+				// #ifndef H5
+				console.log(this.todo)
+				uni.navigateTo({
+					url:`/PageList/newlist/newlist?topcolor=${this.todo.colors[0]}&type=${this.todo.name}`
+				})
 				// #endif
 			},
 			clone(){
@@ -68,19 +75,19 @@
 
 <style scoped>
 	.todo {
-		position: absolute;
-		left: 0;
-		right: 0;
+		display: flex;	
+		flex: 1;
 		overflow: hidden;
 		box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
 		color: #666;
 		width: 100%;
+		margin: 0 8px;
 		background-color: #fff;
 		border-radius: 8px;
 		height: 100%;
 		box-sizing: border-box;
-		display: flex;
 		flex-direction:column;
+		transition: all .5s;
 	}
 	.todo.active{
 		visibility: hidden;
@@ -121,6 +128,7 @@
 		flex: 1;
 		transition: all 1s;
 		transform: translateY(888px);
+		position: relative;
 	}
 	.todo > .list.active{
 		opacity: 1;

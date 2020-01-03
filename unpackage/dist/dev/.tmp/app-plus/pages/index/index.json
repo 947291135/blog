@@ -1,0 +1,30 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "uni-app",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "animationType": "fade-in",
+  "animationDuration": 300,
+  "pullToRefresh": {
+    "support": true,
+    "color": "#9aa3b3",
+    "style": "circle",
+    "contentdown": {
+      "caption": "下拉可刷新"
+    },
+    "contentover": {
+      "caption": "释放刷新"
+    },
+    "contentrefresh": {
+      "caption": "正在刷新"
+    }
+  },
+  "usingComponents": {
+    "uni-nav-bar": "/components/uni-nav-bar/uni-nav-bar",
+    "list": "/components/list",
+    "gradient": "/components/Gradient",
+    "avatar": "/components/Avatar",
+    "content-list": "/components/ContentList",
+    "todo-detail": "/components/TodoDetail"
+  }
+}

@@ -104,11 +104,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/list":1,"components/Avatar":1,"components/ContentList":1,"components/Gradient":1,"components/TodoDetail":1,"components/uni-nav-bar/uni-nav-bar":1,"components/Todo":1,"components/BgColor":1,"components/uni-icons/uni-icons":1,"components/uni-status-bar/uni-status-bar":1};
+/******/ 		var cssChunks = {"components/list":1,"components/Avatar":1,"components/ContentList":1,"components/Gradient":1,"components/TodoDetail":1,"components/uni-nav-bar/uni-nav-bar":1,"components/ArticleList":1,"components/Todo":1,"components/BgColor":1,"components/uni-icons/uni-icons":1,"components/uni-status-bar/uni-status-bar":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/list":"components/list","components/Avatar":"components/Avatar","components/ContentList":"components/ContentList","components/Gradient":"components/Gradient","components/TodoDetail":"components/TodoDetail","components/uni-nav-bar/uni-nav-bar":"components/uni-nav-bar/uni-nav-bar","components/Todo":"components/Todo","components/BgColor":"components/BgColor","components/uni-icons/uni-icons":"components/uni-icons/uni-icons","components/uni-status-bar/uni-status-bar":"components/uni-status-bar/uni-status-bar"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/list":"components/list","components/Avatar":"components/Avatar","components/ContentList":"components/ContentList","components/Gradient":"components/Gradient","components/TodoDetail":"components/TodoDetail","components/uni-nav-bar/uni-nav-bar":"components/uni-nav-bar/uni-nav-bar","components/ArticleList":"components/ArticleList","components/Todo":"components/Todo","components/BgColor":"components/BgColor","components/uni-icons/uni-icons":"components/uni-icons/uni-icons","components/uni-status-bar/uni-status-bar":"components/uni-status-bar/uni-status-bar"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

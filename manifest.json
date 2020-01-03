@@ -7,6 +7,7 @@
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
+		"compilerVersion": 3,
         "usingComponents" : true,
         "nvueCompiler" : "uni-app",
         "splashscreen" : {
@@ -56,12 +57,12 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wxdd3c6bcc86ff55cf",
         "setting" : {
             "urlCheck" : false,
             "es6" : true,
             "minified" : true,
-            "postcss" : true
+            "postcss" : false
         },
         "usingComponents" : true
     },

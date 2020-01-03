@@ -7,13 +7,14 @@
 		"urlCheck": false,
 		"es6": true,
 		"minified": true,
-		"postcss": true,
-		"newFeature": true
+		"postcss": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
-	"appid": "touristappid",
+	"appid": "wxdd3c6bcc86ff55cf",
 	"projectname": "app",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

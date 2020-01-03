@@ -1,7 +1,7 @@
 <template>
 	<view class="list" :animation="listAnimation">
 		<view class="close" @click="listClose">
-			<view class="iconfont iconguanbi"></view>
+			<view :class="['iconfont',clone]"></view>
 		</view>
 		<view class="header">
 			<view class="logo">
@@ -31,7 +31,7 @@
 						axios
 					</view>
 				</view>
-				<view class="code iconfont iconerweima"></view>
+				<view :class="['code', 'iconfont', clone?'iconerweima':'iconguanbi']" @click="codeClick"></view>
 			</view>
 			
 		</view>
@@ -91,8 +91,14 @@
 						icon:'iconresume-s',
 						text:'我的简历'
 					}
-				]
+				],
+				clone:null
 			};
+		},
+		mounted(){
+			// #ifdef  APP-PLUS || H5
+			  this.clone = 'iconguanbi'
+			// #endif
 		},
 		methods: {
 			show() {
@@ -131,6 +137,11 @@
 				//  语言切换
 				let lg = this.language ==='zh'?'en':'zh'
 				this._i18n.locale = lg
+			},
+			codeClick(){
+				// #ifdef  MP-WEIXIN
+				  this.listClose()
+				// #endif
 			}
 		},
 		computed:{
@@ -157,6 +168,9 @@
 	}
 	/* header */
 	.list > .header{
+		/* #ifndef APP-NVUE */
+		margin-top: 30px;
+		/* #endif */
 		flex: 195px 0 0;
 		box-sizing: border-box;
 		padding: 55px 35rpx 40px 35rpx;
@@ -219,7 +233,9 @@
 		top: 0;
 		right: 0;
 	}
-	
+	.list > .header > .info > .code.iconfont.iconguanbi{
+		font-size: 16px;
+	}
 	
 	
 	/* content */
@@ -325,6 +341,9 @@
 		position: absolute;
 		right: 35rpx;
 		top: 20rpx;
+		/*  #ifdef  APP-PLUS*/
+		top: 80rpx;
+		/*  #endif  */
 		font-weight: 700;
 		color: #333333;
 		cursor: pointer;

@@ -7,7 +7,9 @@
 			</view>
 			<view class="info">
 				<view class="title">
-					{{item.title}}
+					<view class="title_text">
+						{{item.title}}
+					</view>
 					<view class="date">
 						{{time(item.time)}}
 					</view>
@@ -21,7 +23,7 @@
 					<view class="given active">
 						<view class="iconfont iconbuoumaotubiao16"></view>
 						<view class="text">
-							 {{item.given}}
+							{{item.given}}
 						</view>
 					</view>
 					<view class="comment">
@@ -40,62 +42,77 @@
 	export default {
 		data() {
 			return {
-				arr:[
-					{
-						title:'MAIRE SLEDGE',
-						zhTitle:'这是个标题',
-						brief:{
-							en:`This is Photoshop's version of Lorem lpsum.
+				arr: [{
+					title: 'MAIRE SLEDGE',
+					zhTitle: '这是个标题',
+					brief: {
+						en: `This is Photoshop's version of Lorem lpsum.
 								Proin gravida nibh vel velist austor aliquet.
-								Aenean sollictudin456456456456546+456489`,
-							zh:`这是一段很长很长很长很长很长很长很长很长很长很长很长很长,
+								Aenean sollictudin456456456456546+456489231521561561561561561561`,
+						zh: `这是一段很长很长很长很长很长很长很长很长很长很长很长很长,
 								很长很长很长很长很长很长的简介说明`
-						},
-						given:2,
-						comment:12,
-						time:'2019-12-28 15:54:31'
-					}
-				]
+					},
+					given: 2,
+					comment: 12,
+					time: '2020-01-02 9:34:31'
+				}]
 			};
 		},
-		methods:{
-			bottom(){
-				this.length +=2
+		methods: {
+			bottom() {
+				this.length += 2
 			},
-			time(date){
-				if(!date){
+			time(date) {
+				if (!date) {
 					return ''
 				}
-				let newDate =  new Date().getTime();
+				let newDate = new Date().getTime();
 				let lowDate = new Date(date).getTime();
 				console.log(this.date(lowDate));
-				let lineTime = Math.round((newDate-lowDate)/1000/60); //间隔时间（分钟）
-				if(lineTime<60){
+				let lineTime = Math.round((newDate - lowDate) / 1000 / 60); //间隔时间（分钟）
+				if (lineTime < 60) {
+					if(this.language==='en'){
+						return `${lineTime} min`
+					}
 					return `${lineTime}分钟前`
-				}else{
-					let longTime = Math.round(lineTime/60)
-					if(longTime<60){
+				} else {
+					let longTime = Math.round(lineTime / 60)
+					if (longTime < 60) {
+						if(this.language==='en'){
+							return `${longTime} hour`
+						}
 						return `${longTime}小时前`
 					}
-					
-					return this.date(lowDate)	
+
+					return this.date(lowDate)
 				}
 			},
-			date(data){
+			date(data) {
 				const d = new Date(data);
 				let y = d.getFullYear();
-				let m = d.getMonth()+1;
+				let m = d.getMonth() + 1;
 				let ri = d.getDate();
+				if(this.language==='en'){
+					return d.toDateString().toUpperCase().replace(/(\s\d{4})/,',$1');
+				}
+				
 				return `${y}年${m}月${ri}日`
 			}
 		},
 		computed: {
 			heights() {
 				const {
-					screenHeight
+					screenHeight,
+					windowHeight
 				} = uni.getSystemInfoSync();
 				let rel = screenHeight - 44;
+				// #ifndef H5
+				return windowHeight
+				// #endif
 				return rel;
+			},
+			language() {
+				return this._i18n.locale
 			}
 		}
 	}
@@ -132,69 +149,97 @@
 		font-size: 20rpx;
 		display: flex;
 		flex-direction: column;
-		ustify-content:space-between
+		justify-content:space-between;
+		overflow: hidden;
 	}
-	.content .item .info > .title{
+
+	.content .item .info>.title {
 		flex: 25rpx 0 0;
 		display: flex;
-		align-items:center;
+		align-items: center;
 		font-size: 28rpx;
 		color: #000;
+		position: relative;
+		justify-content:space-between
 	}
-	.content .item .info > .brief{
+	.content .item .info>.title .title_text{
+		flex-grow:0;
+		flex-shrink: 1;
+		flex-basis:auto;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	.content .item .info>.title .date{
+		flex-grow:0;
+		flex-shrink: 0;
+		flex-basis:auto;
+		font-size: 16rpx;
+		color: #d8d8d8;
+	}
+	.content .item .info>.brief {
 		flex: auto;
 		display: flex;
-		align-items:center;
+		align-items: center;
 		color: #000;
 	}
-	.content .item .info > .brief .text{
+
+	.content .item .info>.brief .text {
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 3;
 		overflow: hidden;
 	}
-	.content .item .info>.tools{
+
+	.content .item .info>.tools {
 		display: flex;
 		flex: 27rpx 0 0;
-		align-items:center;
+		align-items: center;
 		color: #d8d8d8;
 	}
-	.content .item .info>.tools > .given{
+
+	.content .item .info>.tools>.given {
 		margin-right: 10px;
 	}
-	.content .item .info>.tools > .given > view  {
+
+	.content .item .info>.tools>.given>view {
 		float: left;
 		font-size: 24rpx;
 		display: flex;
 		line-height: 27rpx;
 	}
-	.content .item .info>.tools .given .iconfont{
+
+	.content .item .info>.tools .given .iconfont {
 		height: 27rpx;
 		font-size: 27rpx;
 		margin-right: 2px;
 	}
-	.content .item .info>.tools .given.active{
+
+	.content .item .info>.tools .given.active {
 		color: #747474;
 	}
-	.content .item .info>.tools .given .text{
+
+	.content .item .info>.tools .given .text {
 		height: 27rpx;
 		vertical-align: middle;
 	}
-	.content .item .info>.tools .comment >view{
+
+	.content .item .info>.tools .comment>view {
 		float: left;
 		font-size: 24rpx;
 		display: flex;
 		line-height: 27rpx;
 	}
-	.content .item .info>.tools .comment .iconfont{
+
+	.content .item .info>.tools .comment .iconfont {
 		height: 27rpx;
 		width: 27rpx;
 		font-size: 29rpx;
 		margin-right: 2px;
 	}
-	.content .item .info>.tools .comment .text{
+
+	.content .item .info>.tools .comment .text {
 		height: 27rpx;
 		vertical-align: middle;
 	}
 </style>
-

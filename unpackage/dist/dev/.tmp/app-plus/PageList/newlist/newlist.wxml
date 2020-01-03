@@ -1,0 +1,1 @@
+<view><article-list vue-id="1" bind:__l="__l"></article-list></view>

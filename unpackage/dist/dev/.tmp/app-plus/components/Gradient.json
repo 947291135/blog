@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "bg-color": "/components/BgColor"
+  },
+  "component": true
+}

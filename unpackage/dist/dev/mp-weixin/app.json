@@ -2,11 +2,17 @@
   "pages": [
     "pages/index/index"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "PageList/",
+      "pages": [
+        "newlist/newlist"
+      ]
+    }
+  ],
   "window": {
-    "navigationStyle": "custom",
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
   },

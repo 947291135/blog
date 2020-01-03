@@ -135,6 +135,8 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.content {

@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/index/index",
+    "PageList/newlist/newlist"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "nvueCompiler": "uni-app",
+  "renderer": "auto",
+  "splashscreen": {
+    "alwaysShowBeforeRender": true,
+    "autoclose": false
+  },
+  "appname": "app",
+  "compilerVersion": "2.4.6",
+  "usingComponents": {}
+}

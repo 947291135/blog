@@ -128,7 +128,9 @@
 
 	.uni-navbar {
 		// 小程序专用
-		// padding-top: 20px; 
+		/*  #ifdef  MP-WEIXIN || APP-PLUS*/
+		padding-top: 60rpx; 
+		/*  #endif  */
 		width: 750rpx;
 	}
 

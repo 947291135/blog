@@ -35,14 +35,14 @@
 		display: flex;
 		padding: 0 40px;
 		height: 300px;
-		justify-content: flex-end;
+		justify-content: center;
 		flex-direction: column;
 		transition: all .5s ease;
 	}
 
 	.avatar>.Weather {
-		width: 60px;
-		height: 60px;
+		width: 90px;
+		height: 90px;
 		overflow: hidden;
 	}
 
@@ -54,9 +54,9 @@
 
 	.title {
 		white-space: nowrap;
-		margin-top: 32px;
+		margin-top: 16px;
 		padding: 0 6px;
-		font-size: 32px;
+		font-size: 16px;
 		letter-spacing: 1px;
 		font-weight: 300;
 		text-align: left;
@@ -78,8 +78,8 @@
 	}
 
 	.time {
-		margin-top: 44px;
-		margin-bottom: 16px;
+		margin-top: 22px;
+		margin-bottom: 8px;
 		padding: 0 6px;
 		font-size: 14px;
 		text-align: left;

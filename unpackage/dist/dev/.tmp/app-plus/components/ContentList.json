@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "todo": "/components/Todo"
+  },
+  "component": true
+}
