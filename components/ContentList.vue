@@ -1,5 +1,5 @@
 <template>
-	<view :class="['content_list',{active:!!selected}]" @touchstart="start" @touchmove.stop="move" @touchend="end" v-if="!selected">
+	<view :class="['content_list',{active:!!selected}]" @touchstart="start" @touchmove.stop="move" @touchend="end" v-show="!selected">
 		<view class="list" :style="{width:`${todos.length*100}%`,'min-width':`${todos.length*100}%`}" >
 			<view class="list_item" v-for="(item,index) of todos" :key='index' :style="{transform:`translate3d(-${currentIndex*100}%,0,0)`}">
 				<Todo :selected='selected && item===selected.todo' :todo='item' :index='index' :icon='item.icon' :style="{'display':'flex','flex':'1'}"></Todo>

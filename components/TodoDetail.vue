@@ -1,5 +1,5 @@
 <template>
-	<view ref='TodoDetail' class="TodoDetail" v-if="selected" :animation="listAnimation">
+	<view ref='TodoDetail' class="TodoDetail" v-show="selected" :animation="listAnimation">
 		<todo ref='todo' :todo="selected.todo" @cloe='cloe()' v-if="selected"></todo>
 	</view>
 </template>
